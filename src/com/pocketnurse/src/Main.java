@@ -47,7 +47,7 @@ public class Main extends javax.swing.JFrame {
         jButton16.setVisible(false);
         jButton17.setVisible(false);
         jButton18.setVisible(false);
-        CheckReqPanel.setVisible(false);
+        
 
         
     }
@@ -61,11 +61,6 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CheckReqPanel = new javax.swing.JPanel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         LoginPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -197,80 +192,6 @@ public class Main extends javax.swing.JFrame {
         setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CheckReqPanel.setBackground(new java.awt.Color(255, 68, 51));
-        CheckReqPanel.setMaximumSize(new java.awt.Dimension(797, 530));
-        CheckReqPanel.setPreferredSize(new java.awt.Dimension(797, 530));
-
-        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/pocketnurse/img/Screenshot_2015-07-27-11-10-03.png"))); // NOI18N
-
-        jLabel52.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel52.setText("CHECK REQUEST");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Name", "Address", "Hospital", "Last Date", "Blood Group", ""
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        javax.swing.GroupLayout CheckReqPanelLayout = new javax.swing.GroupLayout(CheckReqPanel);
-        CheckReqPanel.setLayout(CheckReqPanelLayout);
-        CheckReqPanelLayout.setHorizontalGroup(
-            CheckReqPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CheckReqPanelLayout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
-                .addGroup(CheckReqPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CheckReqPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel52)
-                        .addGap(139, 139, 139))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CheckReqPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53))))
-            .addGroup(CheckReqPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(CheckReqPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel51)
-                    .addContainerGap(635, Short.MAX_VALUE)))
-        );
-        CheckReqPanelLayout.setVerticalGroup(
-            CheckReqPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CheckReqPanelLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(jLabel52)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-            .addGroup(CheckReqPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(CheckReqPanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel51, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-
-        getContentPane().add(CheckReqPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         LoginPanel.setBackground(new java.awt.Color(255, 68, 51));
         LoginPanel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -1430,7 +1351,7 @@ public class Main extends javax.swing.JFrame {
 
 
             //CONNECTING TO SERVER.
-            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/updatebankdata.php");
+            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/updatebankdata.php");
             http.sendPost(param);
             System.out.println("hogyavhjfvjvjvjvjvjvjkvkvz" + http.serverReply());
            // Toast.makeText(getBaseContext(),"name = "+personName+"\nprofile="+personGooglePlusProfile,Toast.LENGTH_LONG).show();
@@ -1623,7 +1544,7 @@ public class Main extends javax.swing.JFrame {
 
 
             //CONNECTING TO SERVER.
-            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/forgetpassword.php");
+            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/forgetpassword.php");
             http.sendPost(param);
             if(http.serverReply().trim().equalsIgnoreCase("fail"))
             {
@@ -1674,7 +1595,7 @@ public class Main extends javax.swing.JFrame {
             }
 
             //CONNECTING TO SERVER.
-            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/bankdata.php");
+            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/bankdata.php");
             http.sendPost(param);
             getBankId();
                    // JOptionPane.showMessageDialog(null, "Your Bank ID"+http.serverReply().trim()+"\n\nNote the ID as you will require it in the next Log In.","Your Bank ID",JOptionPane.INFORMATION_MESSAGE);
@@ -1720,7 +1641,7 @@ public class Main extends javax.swing.JFrame {
                     e.printStackTrace();
                 }
 
-                HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/bloodbanklogin.php");
+                HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/bloodbanklogin.php");
                 http.sendPost(param);
 
                 System.out.println("reply : "+http.serverReply());
@@ -1829,7 +1750,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CheckReqPanel;
     private javax.swing.JPanel ForgetPanel;
     private javax.swing.JPanel LoginPanel;
     private javax.swing.JTabbedPane MainPane;
@@ -1918,8 +1838,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1936,8 +1854,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JPasswordField jPasswordField3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -2030,7 +1946,7 @@ public class Main extends javax.swing.JFrame {
                     e.printStackTrace();
                 }
                 
-                HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/BloodGroupSetText.php");
+                HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/BloodGroupSetText.php");
                  http.sendPost(param);
                  
                  System.out.println("reply : "+http.serverReply());
@@ -2122,7 +2038,7 @@ public class Main extends javax.swing.JFrame {
             }
 
             //CONNECTING TO SERVER.
-            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/getbankid.php");
+            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/getbankid.php");
             http.sendPost(param);
             
                     JOptionPane.showMessageDialog(null, "Your Bank ID is "+http.serverReply().trim()+"\n\nNote the ID as you will require it in the next Log In.","Your Bank ID",JOptionPane.INFORMATION_MESSAGE);
