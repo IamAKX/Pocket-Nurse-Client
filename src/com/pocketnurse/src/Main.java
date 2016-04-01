@@ -183,6 +183,7 @@ public class Main extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -1234,6 +1235,14 @@ public class Main extends javax.swing.JFrame {
 
         jMenu3.setText("User");
 
+        jMenuItem4.setText("Check Request");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
         jMenuItem3.setText("Log Out");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1647,13 +1656,13 @@ public class Main extends javax.swing.JFrame {
                 System.out.println("reply : "+http.serverReply());
                 String LogCheck=http.serverReply();
                 // if(LogCheck.equalsIgnoreCase("success"))
-
-                if(http.serverReply().trim().equals("success"))
+                String mServerReply = http.serverReply().trim();
+                if(mServerReply.substring(0,7).equals("success"))
                 {
                     LoginPanel.setVisible(false);
                     RegPanel.setVisible(false);
                     MainPane.setVisible(true);
-
+                    new SimpleSwingBrowser().bankname=mServerReply.substring(mServerReply.indexOf("#")+1);
                     bloodGroupSetText();
                 }
                 else
@@ -1713,6 +1722,11 @@ public class Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Akash Giri \n e-Mail : akx.sonu@gmail.com \n\n","Developers",JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        new SimpleSwingBrowser().startup();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1849,6 +1863,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
