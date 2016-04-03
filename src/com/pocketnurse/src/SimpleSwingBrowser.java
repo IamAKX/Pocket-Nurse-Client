@@ -194,13 +194,16 @@ public class SimpleSwingBrowser extends JFrame {
 
    
 
-    public static void startup() {
+    public static void startup(String s) {
         SwingUtilities.invokeLater(new Runnable() {
 
             public void run() {
                 SimpleSwingBrowser browser = new SimpleSwingBrowser();
                 browser.setVisible(true);
-                browser.loadURL("http://pocketnurse.16mb.com/pn/checkbRequest.php?bank="+bankname);
+                if(s.equals("request"))
+                    browser.loadURL("http://pocketnurse.16mb.com/pn/checkbRequest.php?bank="+bankname);
+                else
+                    browser.loadURL("http://pocketnurse.16mb.com/pn/history.php?bank="+bankname);
            }     
        });
     }

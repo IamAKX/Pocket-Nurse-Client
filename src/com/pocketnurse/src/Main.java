@@ -21,13 +21,16 @@ import javax.swing.JOptionPane;
  */
 public class Main extends javax.swing.JFrame {
 
+    private int LOGIN_STATUS=0;
+
     /**
      * Creates new form Main
      */
     
     public Main() {
         initComponents();
-        
+        //this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/pocketnurse/img/appicon1.png")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/pocketnurse/img/appicon1.png")));
         RegPanel.setVisible(false);
         MainPane.setVisible(false);
         ForgetPanel.setVisible(false);
@@ -184,12 +187,13 @@ public class Main extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Pocket Nurse Client");
+        setTitle("Impilo");
         setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -277,7 +281,7 @@ public class Main extends javax.swing.JFrame {
         );
         LoginPanelLayout.setVerticalGroup(
             LoginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, Short.MAX_VALUE)
             .addGroup(LoginPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,7 +451,7 @@ public class Main extends javax.swing.JFrame {
         );
         RegPanelLayout.setVerticalGroup(
             RegPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 530, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(RegPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1179,7 +1183,7 @@ public class Main extends javax.swing.JFrame {
         );
         ForgetPanelLayout.setVerticalGroup(
             ForgetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 510, Short.MAX_VALUE)
             .addGroup(ForgetPanelLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(ForgetPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1243,6 +1247,14 @@ public class Main extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem4);
 
+        jMenuItem5.setText("Check History");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem5);
+
         jMenuItem3.setText("Log Out");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1253,7 +1265,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Help");
 
         jMenuItem2.setText("About");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -1521,7 +1533,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "POCKET NURSE CLIENT\n"+"Alpha Release v0.0.1","About",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "IMPILO CLIENT\n"+"Beta Release v1.0.1","About",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -1617,7 +1629,7 @@ public class Main extends javax.swing.JFrame {
     private void jLabel16MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseReleased
         // TODO add your handling code here:
 
-        JOptionPane.showMessageDialog(null, "Pocket Nurse and its developer is not resposible for any \n"
+        JOptionPane.showMessageDialog(null, "Impilo and its developer is not resposible for any \n"
             + "dispute, losses or harm to the Blood Recipient or the \n"
             + "Blood Bank owner or the third party intrested in them \n"
             + "that arises due to Interaction.\n\n"
@@ -1663,6 +1675,7 @@ public class Main extends javax.swing.JFrame {
                     RegPanel.setVisible(false);
                     MainPane.setVisible(true);
                     new SimpleSwingBrowser().bankname=mServerReply.substring(mServerReply.indexOf("#")+1);
+                    LOGIN_STATUS = 1;
                     bloodGroupSetText();
                 }
                 else
@@ -1700,6 +1713,7 @@ public class Main extends javax.swing.JFrame {
        MainPane.setVisible(false);
        RegPanel.setVisible(false);
        ForgetPanel.setVisible(false);
+       LOGIN_STATUS=0;
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jLabel49MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel49MouseReleased
@@ -1725,8 +1739,19 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        new SimpleSwingBrowser().startup();
+        if(LOGIN_STATUS==1)
+            new SimpleSwingBrowser().startup("request");
+        else
+            JOptionPane.showMessageDialog(null, "Please login first to check your requests","Denied",JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        if(LOGIN_STATUS==1)
+            new SimpleSwingBrowser().startup("history");
+        else
+            JOptionPane.showMessageDialog(null, "Please login first to view history","Denied",JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1864,6 +1889,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
