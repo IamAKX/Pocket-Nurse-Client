@@ -193,7 +193,7 @@ public class SimpleSwingBrowser extends JFrame {
     }
 
    
-
+   
     public static void startup(String s) {
         SwingUtilities.invokeLater(new Runnable() {
 
@@ -201,9 +201,9 @@ public class SimpleSwingBrowser extends JFrame {
                 SimpleSwingBrowser browser = new SimpleSwingBrowser();
                 browser.setVisible(true);
                 if(s.equals("request"))
-                    browser.loadURL("http://pocketnurse.16mb.com/pn/checkbRequest.php?bank="+bankname);
+                    browser.loadURL(Main.SERVER_URL+"checkbRequest.php?bank="+bankname);
                 else
-                    browser.loadURL("http://pocketnurse.16mb.com/pn/history.php?bank="+bankname);
+                    browser.loadURL(Main.SERVER_URL+"history.php?bank="+bankname);
            }     
        });
     }

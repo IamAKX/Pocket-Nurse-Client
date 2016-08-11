@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 public class Main extends javax.swing.JFrame {
 
     private int LOGIN_STATUS=0;
-
+    public static String SERVER_URL = "http://akashapplications.hol.es/impilo/";
     /**
      * Creates new form Main
      */
@@ -1372,9 +1372,9 @@ public class Main extends javax.swing.JFrame {
 
 
             //CONNECTING TO SERVER.
-            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/updatebankdata.php");
+            HttpConnection http=new HttpConnection(SERVER_URL+"updatebankdata.php");
             http.sendPost(param);
-            System.out.println("hogyavhjfvjvjvjvjvjvjkvkvz" + http.serverReply());
+            
            // Toast.makeText(getBaseContext(),"name = "+personName+"\nprofile="+personGooglePlusProfile,Toast.LENGTH_LONG).show();
 
              Qap.setText(jTextFieldap.getText());
@@ -1565,7 +1565,7 @@ public class Main extends javax.swing.JFrame {
 
 
             //CONNECTING TO SERVER.
-            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/forgetpassword.php");
+            HttpConnection http=new HttpConnection(SERVER_URL+"forgetpassword.php");
             http.sendPost(param);
             if(http.serverReply().trim().equalsIgnoreCase("fail"))
             {
@@ -1616,7 +1616,7 @@ public class Main extends javax.swing.JFrame {
             }
 
             //CONNECTING TO SERVER.
-            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/bankdata.php");
+            HttpConnection http=new HttpConnection(SERVER_URL+"bankdata.php");
             http.sendPost(param);
             getBankId();
                    // JOptionPane.showMessageDialog(null, "Your Bank ID"+http.serverReply().trim()+"\n\nNote the ID as you will require it in the next Log In.","Your Bank ID",JOptionPane.INFORMATION_MESSAGE);
@@ -1662,7 +1662,7 @@ public class Main extends javax.swing.JFrame {
                     e.printStackTrace();
                 }
 
-                HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/bloodbanklogin.php");
+                HttpConnection http=new HttpConnection(SERVER_URL+"bloodbanklogin.php");
                 http.sendPost(param);
 
                 System.out.println("reply : "+http.serverReply());
@@ -1987,7 +1987,7 @@ public class Main extends javax.swing.JFrame {
                     e.printStackTrace();
                 }
                 
-                HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/BloodGroupSetText.php");
+                HttpConnection http=new HttpConnection(SERVER_URL+"BloodGroupSetText.php");
                  http.sendPost(param);
                  
                  System.out.println("reply : "+http.serverReply());
@@ -2079,7 +2079,7 @@ public class Main extends javax.swing.JFrame {
             }
 
             //CONNECTING TO SERVER.
-            HttpConnection http=new HttpConnection("http://pocketnurse.16mb.com/pn/getbankid.php");
+            HttpConnection http=new HttpConnection(SERVER_URL+"getbankid.php");
             http.sendPost(param);
             
                     JOptionPane.showMessageDialog(null, "Your Bank ID is "+http.serverReply().trim()+"\n\nNote the ID as you will require it in the next Log In.","Your Bank ID",JOptionPane.INFORMATION_MESSAGE);
